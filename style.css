@@ -18,11 +18,11 @@ nav {
 .nav-links {
 	list-style: none;
 	display: flex;
-	margin-right: 3rem;
+	margin-right: 1rem;
 }
 
 .nav-links li {
-	margin-right: 20px;
+	margin-right: 5rem;
 }
 
 .nav-links li a {
@@ -38,33 +38,24 @@ nav {
 .search {
 	display: flex;
 	align-items: left;
-	margin-right: 10rem;
+	margin-right: 5rem;
 }
 
 input[type='text'] {
 	background-color: transparent;
 	border: none;
-	border-bottom: 2px solid #fff;
+	border-bottom: 2px double #fff;
 	color: #fff;
 	font-size: 18px;
 	padding: 10px;
 }
 
-button[type='submit'] {
-	background-color: transparent;
-	border: none;
-	color: #fff;
-	font-size: 18px;
-	margin-left: 10px;
-	cursor: pointer;
-}
 .details {
 	color: aliceblue;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
 		'Lucida Sans', Arial, sans-serif;
 }
 footer {
-	position: ;
 	background-color: #292929;
 	color: #fff;
 	text-align: center;
@@ -79,7 +70,7 @@ footer {
 	text-decoration: none;
 }
 #headingMov:hover {
-	text-decoration: u;
+	text-decoration: underline;
 }
 #logo2 {
 	color: #ffc107;
@@ -137,8 +128,4 @@ footer {
 .card-rating {
 	font-size: 14px;
 	margin: 0;
-}
-#listH {
-	display: inline;
-	float: left;
 }

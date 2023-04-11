@@ -7,23 +7,22 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SeriesPoint - Home</title>
 </head>
 
 <body>
     <nav>
-        <div class="logo">
+        <div class="logo" onclick='loadHome()'>
             <a href="#">Series</a>
             <a href="#" id="logo2">Point</a>
         </div>
         <div class="search">
             <form>
                 <input type="text" id="searchBar" placeholder="Seach...">
-                <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="#" onclick='loadHome()'>Home</a></li>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Contact Us</a></li>
         </ul>
@@ -32,6 +31,7 @@
     </ul>
     <ul id="listH">
     </ul>
+
     <footer>
         <p id="logo2">&copy; 2023 Prakhar Shukla - The Genius. All rights reserved.</p>
     </footer>

@@ -1,11 +1,20 @@
 function search(query) {
-	const url = `https://api.tvmaze.com/search/shows?q=${query}`;
-	fetch(url)
-		.then((response) => response.json())
-		.then((data) => resultPrint(data));
+	if (query === '') {
+		loadHome();
+	} else {
+		const url = `https://api.tvmaze.com/search/shows?q=${query}`;
+		fetch(url)
+			.then((response) => response.json())
+			.then((data) => resultPrint(data));
+	}
+}
+function shorten(str, n) {
+	return str?.length > n ? str.substr(0, n - 1) + '...' : str;
 }
 function loadHome() {
-	for (let i = 1; i < 101; i++) {
+	const list = document.getElementById('list');
+	list.innerHTML = '';
+	for (let i = 100; i < 201; i++) {
 		let targetUrl = `https://api.tvmaze.com/shows/${i}`;
 		fetch(targetUrl)
 			.then((response) => response.json())
@@ -27,7 +36,7 @@ function renderElement(data) {
         <img src="${data.image.medium}"  alt="Movie Image">
         <div class="card-overlay">
           <h3 class="card-title">${data.name}</h3>
-          <p class="card-desc">${data.summary}</p>
+          <p class="card-desc">${shorten(data.summary, 100)}</p>
           <p class="card-duration">Duration: ${data.averageRuntime}</p>
           <p class="card-rating">Rating: ${data.rating.average}</p>
         </div>
@@ -37,36 +46,12 @@ function renderElement(data) {
 	element.style.marginRight = '35px';
 	element.style.cursor = 'pointer';
 	listH.appendChild(element);
-	// let element = document.createElement('div');
-	// element.className = 'card';
-	// let img = document.createElement('img');
-	// img.src = data.image.medium;
-	// element.appendChild(img);
-	// let overlay = document.createElement('div');
-	// overlay.className = 'card-overlay';
-	// element.appendChild(overlay);
-
-	// let sName = document.createElement('h3');
-	// sName.className = 'card-title';
-	// sName.innerText = data.name;
-	// element.appendChild(sName);
-	// let desc = document.createElement('p');
-	// desc.className = 'card-desc';
-	// desc.innerText = data.summary;
-	// element.appendChild(desc);
-	// let duration = document.createElement('p');
-	// duration.className = 'card-duration';
-	// duration.innerText = data.averageRuntime;
-	// element.appendChild(duration);
-	// let rating = document.createElement('p');
-	// rating.className = 'card-rating';
-	// rating.innerText = data.rating.average;
-	// element.appendChild(rating);
-	// list.appendChild(element);
 }
 
 function resultPrint(data) {
 	const list = document.getElementById('list');
+	const listH = document.getElementById('listH');
+	listH.innerHTML = '';
 	let nameArr = data.map((element) => element.show.name);
 	let imgArr = data.map((element) => element.show.image);
 	let summaryArr = data.map((element) => element.show.summary);
